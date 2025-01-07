@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+
 {% block title %}
   {{ post.location }}. {{ post.date }}
-{% endblock %}
+{% endblock title %}
 {% block content %}
   <div class="container py-5">
     <article>
       <ul>
         <li>
-          Место: {{ post.location }}              
+          Место: {{ post.location }}             
         </li>
         <li>
           Дата: {{ post.date }}
@@ -18,10 +19,10 @@
             {{ post.category }}
           </a>
         </li>
-      </ul>         
+      </ul>       
       <p>
         {{ post.text }}
       </p>
-    </article>                
+    </article>     
   </div>
-{% endblock %}
+{% endblock content %}
