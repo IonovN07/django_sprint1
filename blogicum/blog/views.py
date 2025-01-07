@@ -55,7 +55,7 @@ def post_detail(request, post_id):
     for post in posts:
         if post['id'] == post_id:
             public = post
-    if public == None:
+    if not public:
         raise Http404
     return render(request, 'blog/detail.html', {'post': public})
 
