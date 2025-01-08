@@ -44,7 +44,7 @@ posts = [
     },
 ]
 
-posts_id = dict((post['id'], post) for post in posts)
+posts_id = {post['id']: post for post in posts}
 
 
 def index(request):
@@ -53,9 +53,8 @@ def index(request):
 
 def post_detail(request, post_id):
     if post_id not in posts_id:
-        raise Http404('Запрашиваемая вами страница не найдена')
-    post = posts_id[post_id]
-    return render(request, 'blog/detail.html', {'post': post})
+        raise Http404(f'Запрашиваемая вами страница {post_id} не найдена')
+    return render(request, 'blog/detail.html', {'post': posts_id[post_id]})
 
 
 def category_posts(request, category_slug):
